@@ -6,8 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.connect_4.preGame01;
 import com.example.connect_4.R;
+
+import static com.example.connect_4.preGame01.name01;
+import static com.example.connect_4.preGame01.name02;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int BLANK = 0;
@@ -35,11 +38,14 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         textViewPlayer1 = findViewById(R.id.text_view_p1);
         textViewPlayer2 = findViewById(R.id.text_view_p2);
 
+
         initialiseGame();
     }
 
     @Override
     public void onClick(View v) {
+
+
         int row, col;
         boolean broke = false;
 
@@ -71,6 +77,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initialiseGame(){
         player = PLAYER1;
+        textViewPlayer1.setText(name01 + ": " + player1points + "      ");
+        textViewPlayer2.setText(name02 + ": " + player2points);
 
         for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLUMNS; col++) {
@@ -155,8 +163,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void updatePoints() {
-        textViewPlayer1.setText("Player 1: " + player1points);
-        textViewPlayer2.setText("Player 2: " + player2points);
+        textViewPlayer1.setText(name01 + ": " + player1points + "      ");
+        textViewPlayer2.setText(name02 + ": " + player2points);
     }
 
     private void resetBoard() {

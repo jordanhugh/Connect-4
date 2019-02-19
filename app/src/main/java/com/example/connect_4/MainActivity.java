@@ -7,25 +7,39 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
 
+    Button button0, button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_01);
 
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
+        button0 = (Button) findViewById(R.id.playButton);
+        button1 = (Button) findViewById(R.id.settingsButton);
+
+        button0.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                openSecondActivity();
+            public void onClick(View v) { //PLAY BUTTON
+                //LINK TO NEXT PAGE
+                openPGActivity();
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //LINK TO APP INFO ?
             }
         });
     }
 
-    public void openSecondActivity(){
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
+
+    public void openPGActivity() {
+       // Intent intent01 = new Intent(this, preGame01.class);
+        //startActivity(intent01);
+        startActivity(new Intent(MainActivity.this, preGame01.class));
     }
+
+
 }
